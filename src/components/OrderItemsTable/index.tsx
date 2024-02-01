@@ -2,7 +2,7 @@ import React, { forwardRef } from 'react'
 import { FixedSizeList as List } from 'react-window';
 import Autosizer from 'react-virtualized-auto-sizer';
 import { OrderItem } from '@/types/OrderItem';
-import './OrderItemsTable.css';
+import './index.css';
 
 const PADDING_SIZE = 10;
 
@@ -41,7 +41,7 @@ const OrderItemsTable = (props: OrderItemsTableProps) => {
 
     return (
         <div className='order-items-table'>
-            <div className="order-item-row">
+            <div className="table-header order-item-row">
                 <div className="fixed-item-cell">OrderLineID</div>
                 <div className="fixed-item-cell">OrderID</div>
                 <div className="fixed-item-cell">StockItemID</div>

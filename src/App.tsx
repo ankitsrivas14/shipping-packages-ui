@@ -16,7 +16,7 @@ function App() {
   
   return (
     <div className="App">
-      <Filters 
+      <Filters
         filters={filters} 
         quantities={quantities} 
         handleSetQtyFilter={handleSetQtyFilter} 
