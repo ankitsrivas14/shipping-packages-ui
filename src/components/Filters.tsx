@@ -47,7 +47,9 @@ const Filters = (props: FiltersProps) => {
     
 
     return (
-        <div className='flex items-center justify-end gap-20 my-10 mr-10'>
+        <div className='flex justify-between items-center mx-10'>
+            <h1 className='font-bold text-3xl'>Minizuba Packaging Orders</h1>
+            <div className='flex items-center justify-end gap-20 my-10 mr-10'>
             <FormControl sx={{ m: 1, minWidth: 120 }} size="small">
                 <InputLabel id="demo-select-small-label">PackageTypeID</InputLabel>
                 <Select
@@ -81,6 +83,7 @@ const Filters = (props: FiltersProps) => {
                 </Box>
                 <Button onClick={() => handleSetQtyFilter(qty)}>Apply</Button>
             </div>
+        </div>
         </div>
     )
 }

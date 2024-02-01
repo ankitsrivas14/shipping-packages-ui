@@ -16,7 +16,6 @@ function App() {
   
   return (
     <div className="App">
-      <h1>Minizuba Packaging Orders</h1>
       <Filters 
         filters={filters} 
         quantities={quantities} 
