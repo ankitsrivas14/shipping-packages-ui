@@ -2,6 +2,7 @@ import React, { forwardRef } from 'react'
 import { FixedSizeList as List } from 'react-window';
 import Autosizer from 'react-virtualized-auto-sizer';
 import { OrderItem } from '@/types/OrderItem';
+import './OrderItemsTable.css';
 
 const PADDING_SIZE = 10;
 
