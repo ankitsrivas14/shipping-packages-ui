@@ -6,7 +6,8 @@ import { SelectChangeEvent } from "@mui/material";
 
 export const useOrdersList = () => {
     const [filters, setFilters] = useState({
-        quantity: 0,
+        minQty: 0,
+        maxQty: 0,
         typeId: 1
     });
     const [orders, setOrders] = useState<OrderItem[]>([]);
@@ -20,8 +21,8 @@ export const useOrdersList = () => {
     }, []);
 
     const filteredOrders = useMemo(() => {
-        return orders.filter((o:OrderItem) => o.Quantity === filters.quantity);
-    }, [filters.quantity, orders])
+        return orders.filter((o:OrderItem) => o.Quantity >= filters.minQty && o.Quantity <= filters.maxQty)  ;
+    }, [filters.minQty, filters.maxQty, orders])
 
     const quantities = useMemo(() => {
         return getUniqueValues(orders, (d:OrderItem) => {
@@ -29,9 +30,16 @@ export const useOrdersList = () => {
         }) as number[];
     }, [orders]);
 
-    const handleSetFilters = useCallback(
+    const handleSetTypeIdFilter = useCallback(
         (e: SelectChangeEvent) => {
-            setFilters((prev) => ({ ...prev, typeId: Number(e.target.value) }));
+            setFilters(() => ({ minQty: 0, maxQty: 0, typeId: Number(e.target.value) }));
+        },
+        [setFilters]
+    );
+
+    const handleSetQtyFilter =  useCallback(
+        (val: number[]) => {
+            setFilters((prev) => ({ ...prev, minQty: val[0], maxQty: val[1]}));
         },
         [setFilters]
     );
@@ -41,7 +49,7 @@ export const useOrdersList = () => {
     }, [filters.typeId, fetchData]);
     
     useEffect(() => {
-        setFilters((prev)=>({...prev, quantity: quantities[0]}))
+        setFilters((prev)=>({...prev, minQty: quantities[0], maxQty: quantities[quantities.length - 1]}))
     }, [quantities]);
 
     return {
@@ -50,6 +58,7 @@ export const useOrdersList = () => {
         isLoading, 
         filteredOrders,
         quantities,
-        handleSetFilters
+        handleSetTypeIdFilter,
+        handleSetQtyFilter
     }
 }

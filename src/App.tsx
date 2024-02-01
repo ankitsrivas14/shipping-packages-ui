@@ -9,18 +9,19 @@ function App() {
     filters,
     quantities,
     isLoading,
-    handleSetFilters,
-    filteredOrders
+    handleSetTypeIdFilter,
+    filteredOrders,
+    handleSetQtyFilter
   } = useOrdersList();
   
-
   return (
     <div className="App">
       <h1>Minizuba Packaging Orders</h1>
       <Filters 
         filters={filters} 
         quantities={quantities} 
-        handleSetFilters={handleSetFilters} 
+        handleSetQtyFilter={handleSetQtyFilter} 
+        handleSetTypeIdFilter={handleSetTypeIdFilter} 
       />
       <OrderItemsTable filteredOrders={filteredOrders} />
     </div>
