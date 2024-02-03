@@ -3,6 +3,7 @@ import { FixedSizeList as List } from 'react-window';
 import Autosizer from 'react-virtualized-auto-sizer';
 import { OrderItem } from '@/types/OrderItem';
 import './OrderItemsTable.css';
+import { getRandomRGBColor } from '@/helpers/utils';
 
 const PADDING_SIZE = 10;
 
@@ -13,6 +14,7 @@ interface OrderItemsTableProps {
 const OrderItemsTable = (props: OrderItemsTableProps) => {
 
     const { filteredOrders } = props;
+    const packageColorCode =  getRandomRGBColor();
 
     const Row = ({ index, style }: { index: number; style: React.CSSProperties }) => (
         <div className="order-item-row" key={filteredOrders[index].OrderLineID} style={style}>
@@ -20,7 +22,10 @@ const OrderItemsTable = (props: OrderItemsTableProps) => {
             <div className="fixed-item-cell">{filteredOrders[index].OrderID}</div>
             <div className="fixed-item-cell">{filteredOrders[index].StockItemID}</div>
             <div className="description-cell">{filteredOrders[index].Description}</div>
-            <div className="fixed-item-cell">{filteredOrders[index].PackageTypeID}</div>
+            <div className="fixed-item-cell package-cell">
+                {filteredOrders[index].PackageTypeID}
+                <span className='package-color-code' style={{backgroundColor: packageColorCode}} />
+            </div>
             <div className="fixed-item-cell">{filteredOrders[index].Quantity}</div>
             <div className="fixed-item-cell">{filteredOrders[index].UnitPrice}</div>
         </div>
