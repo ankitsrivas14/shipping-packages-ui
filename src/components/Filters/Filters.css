@@ -1,0 +1,19 @@
+.filters-container{
+    display: flex ;
+    justify-content: space-between;
+    align-items: center;
+    margin: 40px 10px;  
+    @media screen and (max-width: 1000px){
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
+.filters-row{
+    display: flex;
+    align-items: center;
+    @media screen and (max-width: 600px){
+        flex-direction: column;
+        gap: 20px;
+    }
+}
