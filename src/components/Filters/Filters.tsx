@@ -40,6 +40,7 @@ const Filters = (props: FiltersProps) => {
     setQty([filters.minQty, filters.maxQty]);
   }, [filters]);
 
+  // @ts-ignore
   const handleSliderChange = (event: Event, value: number | number[]) => {
     if (Array.isArray(value)) {
       setQty(value);

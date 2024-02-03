@@ -1,4 +1,3 @@
-import React from 'react';
 import Filters from './components/Filters/Filters';
 import OrderItemsTable from './components/OrderItemsTable/OrderItemsTable';
 import { CircularProgress } from '@mui/material';
