@@ -42,9 +42,6 @@ const Filters = (props: FiltersProps) => {
           setQty(value);
         }
     };
-    console.log("Rendered props=> ", filters);
-    console.log("Rendered state=> ", qty);
-    
 
     return (
         <div className='flex justify-between items-center mx-10'>

@@ -1,7 +1,7 @@
 
 import { useOrdersList } from './hooks/useOrdersList';
-import Filters from './components/Filters';
-import OrderItemsTable from './components/OrderItemsTable';
+import Filters from './components/Filters/Filters';
+import OrderItemsTable from './components/OrderItemsTable/OrderItemsTable';
 import './App.css';
 
 function App() {
